@@ -21,6 +21,7 @@ func Logger (key rxlib.Key) () {
 	}
 	// ... }
 	logger := log.New (writer, "", log.Ldate | log.Ltime)
+	key.NowRunning ()
 	// Recording all logs that are sent. { ...
 	for {
 		key.Wait ()
@@ -56,7 +57,7 @@ func Logger (key rxlib.Key) () {
 func currentTimeString () (string) {
 	currentTime := time.Now ()
 
-	month := currentTime.String ()
+	month := currentTime.Month ().String ()
 	month = month [0:3]
 
 	day := ""

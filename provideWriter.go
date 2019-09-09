@@ -24,6 +24,6 @@ type testWriter struct {}
 
 func (t testWriter) Write (data []byte) (int, error) {
 	fmt.Println ("Package 'github.com/qamarian-rxm/logger' is being tested.")
-	fmt.Println (data)
+	fmt.Println (string (data))
 	return 1, nil
 }
