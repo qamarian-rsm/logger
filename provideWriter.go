@@ -6,7 +6,7 @@ import (
 )
 
 // provideWriter () is called by the logger, to provide an io.Writer that logs should be
-// sent to.
+// forwarded to.
 //
 // Do not forget to provide an implementation for this function, when using it in your
 // Rexa-based Software.
@@ -23,7 +23,7 @@ func provideWriter () (io.Writer, error) {
 type testWriter struct {}
 
 func (t testWriter) Write (data []byte) (int, error) {
-	fmt.Println ("Package 'github.com/qamarian-rxm/logger' is being tested.")
-	fmt.Println (string (data))
+	fmt.Print ("Package 'github.com/qamarian-rxm/logger' is being tested. Log: ")
+	fmt.Print (string (data), "\n")
 	return 1, nil
 }
